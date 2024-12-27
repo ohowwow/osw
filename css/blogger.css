@@ -1,0 +1,17 @@
+/* 確保圖片和文字自動調整 */
+figure {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+figure img {
+    max-width: 100%;
+    height: auto;
+    margin-right: 10px;
+}
+
+figcaption {
+    flex: 1;
+}
+
+

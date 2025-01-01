@@ -76,12 +76,18 @@ function composeToHtml(fileData, description, condition, url1, url2)
         if(fileData[i] != "")
             thumbnailStr += '\<a class=\"scale_img\" href=\"'+fileData[i]+'\"\>\<img data-original-height=\"1080\" data-original-width=\"810\" height=\"640\" src=\"'+fileData[i]+'\" width=\"100\" /\>\</a\>';
     }
-    thumbnailStr +='\</figure\>\</div\></figure><hr>';
+    thumbnailStr +='\</figure\>\</div\><hr>';
     htmlStr += thumbnailStr;
     // console.log('thumbnailStr: ', thumbnailStr);
     // console.log('htmlStr: ', htmlStr);
     const iframe = document.getElementById('resultIframe');
     const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
-    iframeDoc.body.innerHTML = htmlStr;
+    var htmlCodeWithEntities = htmlStr.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    iframeDoc.body.innerHTML += htmlCodeWithEntities;
+    // iframeDoc.open();
+    // iframeDoc.write(htmlCodeWithEntities);
+    // iframeDoc.close();
+
+    // console.log('htmlStr: ', htmlStr);
     return htmlStr;
 }

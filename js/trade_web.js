@@ -11,12 +11,10 @@
 }
 
 // 處理手動輸入
-function handleManualInput(fileIndex) {
-    const fileInput = document.getElementById(`file${fileIndex}`);
-    const filePathInput = document.getElementById(`file${fileIndex}Path`);
-
-    // 如果手動輸入的文字非空，則不會覆蓋選擇的檔案名稱
-    fileInput.value = ''; // 清空檔案選擇框，避免選擇檔案後覆蓋手動輸入的內容
+function handleManualInput(id) {
+    const input = document.getElementById(id);
+    // const filePathInput = document.getElementById(`file${fileIndex}Path`);
+    input.value = '';
 }
 
 // 取得所有欄位資料

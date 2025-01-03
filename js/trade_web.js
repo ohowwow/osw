@@ -45,26 +45,19 @@ function composeToHtml(fileData, description, condition, url1, url2)
 {
     htmlStr='\<div class=\"separator\" style=\"clear: both; text-align: center;\"\> \
     \<figure\> \
-      \<a class=\"scale_img\" href=\"'+fileData[0]+'\"\>\<img data-original-height=\"1080\" data-original-width=\"810\" height=\"362\" src=\"'+fileData[0]+'\" width=\"272\" /\>\</a\> \
+      \<a class=\"scale_img\" href=\"' + fileData[0] + '\"\>\<img data-original-height=\"1080\" data-original-width=\"810\" height=\"362\" src=\"' + fileData[0] + '\" width=\"272\" /\>\</a\> \
       \<figcaption\> \
         \<blockquote\> \
-        \<h3 style=\"text-align: left;\"\>產品說明：\</h3\> \
-        \<blockquote style=\"border: none; margin: 0px 0px 0px 40px; padding: 0px; text-align: left;\"\> \
-          \<blockquote style=\"border: none; margin: 0px 0px 0px 40px; padding: 0px;\"\>\</blockquote\> \
-        \</blockquote\> \
-        \<blockquote style=\"border: none; margin: 0px 0px 0px 40px; padding: 0px; text-align: left;\"\>\</blockquote\> \
-        '+description+' \
-        \<blockquote style=\"border: none; margin: 0px 0px 0px 40px; padding: 0px; text-align: left;\"\> \
-          \<blockquote style=\"border: none; margin: 0px 0px 0px 40px; padding: 0px;\"\>\</blockquote\> \
-        \</blockquote\> \
-        \<blockquote style=\"border: none; margin: 0px 0px 0px 40px; padding: 0px; text-align: left;\"\> \
-          \<blockquote style=\"border: none; margin: 0px 0px 0px 40px; padding: 0px;\"\>'+condition+'\</blockquote\> \
-        \</blockquote\> \
-        \<h3 style=\"text-align: left;\"\>\<span\>\</span\>\<span\> \
-        \</span\>哪裡買：\</h3\> \
-        \<blockquote style=\"border: none; margin: 0px 0px 0px 40px; padding: 0px; text-align: left;\"\> \
-          \<p\>\<a href=\"'+url1+'\" style=\"outline-width: 0px; user-select: auto;\" target=\"_blank\"\>\<b\>旋轉拍賣\</b\>\</a\>\</p\>\<a href=\"'+url2+'\" style=\"outline-width: 0px; text-align: left; user-select: auto;\" target=\"_blank\"\>\<b\>賣貨便\</b\>\</a\>\<span style=\"text-align: left;\"\>&nbsp;貨到付款\</span\>。 \
-        \</blockquote\> \
+          \<h3 style=\"text-align: left;\"\>產品說明：\</h3\> \
+            \<blockquote style=\"border: none; margin: 0px 0px 0px 40px; padding: 0px; text-align: left;\"\> \
+              \<p\>' + description + '\</p\> \
+              \<p\>' + condition + '\</p\> \
+            \</blockquote\> \
+          \<h3 style=\"text-align: left;\"\>這裡買：\</h3\> \
+            \<blockquote style=\"border: none; margin: 0px 0px 0px 40px; padding: 0px; text-align: left;\"\> \
+              \<p\>\<a href=\"' + url1 + '\" style=\"outline-width: 0px; user-select: auto;\" target=\"_blank\"\>\<b\>旋轉拍賣\</b\>\</a\>\</p\> \
+              \<p\>\<a href=\"' + url2 + '\" style=\"outline-width: 0px; text-align: left; user-select: auto;\" target=\"_blank\"\>\<b\>賣貨便 貨到付款\</b\>\</a\>\</p\> \
+            \</blockquote\> \
       \</blockquote\> \
       \</figcaption\> \
     \</figure\>';
@@ -82,7 +75,7 @@ function composeToHtml(fileData, description, condition, url1, url2)
     // console.log('htmlStr: ', htmlStr);
     const iframe = document.getElementById('resultIframe');
     const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
-    var htmlCodeWithEntities = htmlStr.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    var htmlCodeWithEntities = htmlStr.replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/  /g, '');
     iframeDoc.body.innerHTML += htmlCodeWithEntities;
     // iframeDoc.open();
     // iframeDoc.write(htmlCodeWithEntities);

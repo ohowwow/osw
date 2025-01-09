@@ -67,72 +67,85 @@
 </head>
 
 <body>
-    <form id="productForm">
-        <!-- 六個檔案選擇或輸入路徑欄位 -->
-        <div class="file-input-container">
-            <input type="file" id="file1" name="file1" onchange="handleFileChange(1)">
-            <input type="text" id="file1Path" name="file1Path" placeholder="輸入檔案路徑" oninput="handleManualInput(1)"
-                value="https://media.karousell.com/media/photos/products/2024/11/27/levis__quality_clothing_1732707457_ba324100_progressive.jpg">
-            <!-- <button type="button" onclick="document.getElementById('file1').click()">選擇檔案</button> -->
-        </div><br><br>
+        <p><a href="https://ohowwow.github.io/osw/index.html">Home</a></p>
+        <form id="productForm">
+            <div class="h_layout">
+            <div class="rounded_box" style="width: 30%;">
+                <div class="file-input-container">
+                    <input type="file" id="file1" name="file1" onchange="handleFileChange(1)">
+                    <input type="text" id="file1Path" name="file1Path" placeholder="輸入檔案路徑"
+                        oninput="handleManualInput(1)"
+                        value="">
+                    <!-- <button type="button" onclick="document.getElementById('file1').click()">選擇檔案</button> -->
+                </div><br><br>
 
-        <div class="file-input-container">
-            <input type="file" id="file2" name="file2" onchange="handleFileChange(2)">
-            <input type="text" id="file2Path" name="file2Path" placeholder="輸入檔案路徑" oninput="handleManualInput(2)"
-                value="https://media.karousell.com/media/photos/products/2024/11/27/levis__quality_clothing_1732707457_60a5ac8c_progressive.jpg">
-            <!-- <button type="button" onclick="document.getElementById('file2').click()">選擇檔案</button> -->
-        </div><br><br>
+                <div class="file-input-container">
+                    <input type="file" id="file2" name="file2" onchange="handleFileChange(2)">
+                    <input type="text" id="file2Path" name="file2Path" placeholder="輸入檔案路徑"
+                        oninput="handleManualInput(2)"
+                        value="">
+                    <!-- <button type="button" onclick="document.getElementById('file2').click()">選擇檔案</button> -->
+                </div><br><br>
 
-        <div class="file-input-container">
-            <input type="file" id="file3" name="file3" onchange="handleFileChange(3)">
-            <input type="text" id="file3Path" name="file3Path" placeholder="輸入檔案路徑" oninput="handleManualInput(3)"
-                value="https://media.karousell.com/media/photos/products/2024/11/27/levis__quality_clothing_1732707457_99f6af4c_progressive.jpg">
-            <!-- <button type="button" onclick="document.getElementById('file3').click()">選擇檔案</button> -->
-        </div><br><br>
+                <div class="file-input-container">
+                    <input type="file" id="file3" name="file3" onchange="handleFileChange(3)">
+                    <input type="text" id="file3Path" name="file3Path" placeholder="輸入檔案路徑"
+                        oninput="handleManualInput(3)"
+                        value="">
+                    <!-- <button type="button" onclick="document.getElementById('file3').click()">選擇檔案</button> -->
+                </div><br><br>
 
-        <div class="file-input-container">
-            <input type="file" id="file4" name="file4" onchange="handleFileChange(4)">
-            <input type="text" id="file4Path" name="file4Path" placeholder="輸入檔案路徑" oninput="handleManualInput(4)">
-            <!-- <button type="button" onclick="document.getElementById('file4').click()">選擇檔案</button> -->
-        </div><br><br>
+                <div class="file-input-container">
+                    <input type="file" id="file4" name="file4" onchange="handleFileChange(4)">
+                    <input type="text" id="file4Path" name="file4Path" placeholder="輸入檔案路徑"
+                        oninput="handleManualInput(4)">
+                    <!-- <button type="button" onclick="document.getElementById('file4').click()">選擇檔案</button> -->
+                </div><br><br>
 
-        <div class="file-input-container">
-            <input type="file" id="file5" name="file5" onchange="handleFileChange(5)">
-            <input type="text" id="file5Path" name="file5Path" placeholder="輸入檔案路徑" oninput="handleManualInput(5)">
-            <!-- <button type="button" onclick="document.getElementById('file5').click()">選擇檔案</button> -->
-        </div><br><br>
+                <div class="file-input-container">
+                    <input type="file" id="file5" name="file5" onchange="handleFileChange(5)">
+                    <input type="text" id="file5Path" name="file5Path" placeholder="輸入檔案路徑"
+                        oninput="handleManualInput(5)">
+                    <!-- <button type="button" onclick="document.getElementById('file5').click()">選擇檔案</button> -->
+                </div><br><br>
 
-        <div class="file-input-container">
-            <input type="file" id="file6" name="file6" onchange="handleFileChange(6)">
-            <input type="text" id="file6Path" name="file6Path" placeholder="輸入檔案路徑" oninput="handleManualInput(6)">
-            <!-- <button type="button" onclick="document.getElementById('file6').click()">選擇檔案</button> -->
-        </div><br><br>
+                <div class="file-input-container">
+                    <input type="file" id="file6" name="file6" onchange="handleFileChange(6)">
+                    <input type="text" id="file6Path" name="file6Path" placeholder="輸入檔案路徑"
+                        oninput="handleManualInput(6)">
+                    <!-- <button type="button" onclick="document.getElementById('file6').click()">選擇檔案</button> -->
+                </div>
+            </div>
 
-        <!-- 說明文字欄位 -->
-        <label for="description">說明文字：</label>
-        <textarea id="description" name="description" rows="4" cols="50"></textarea><br><br>
+            <div class="rounded_box" style="width: 30%;">
+                <!-- 說明文字欄位 -->
+                <label for="description">說明文字：</label><BR><BR>
+                <textarea id="description" class="" name="description" rows="20" cols="50"></textarea><br><br>
 
-        <!-- 下拉選單 -->
-        <label for="condition">商品狀態：</label>
-        <select id="condition" name="condition">
-            <option value="new">全新</option>
-            <option value="used">二手</option>
-        </select><br><br>
+                <!-- 下拉選單 -->
+                <label for="condition">商品狀態：</label>
+                <select id="condition" name="condition">
+                    <option value="new">全新</option>
+                    <option value="used">二手</option>
+                </select><br><br>
 
-        <!-- 兩個購買網址欄位 -->
-        <label for="url1">購買網址1：</label>
-        <input type="url" id="url1" name="url1"
-            value="https://tw.carousell.com/p/levi-s-%E7%89%9B%E4%BB%94%E8%A4%B2-quality-clothing-1338578748/?t-id=23609739_1723187484204&amp;t-referrer_browse_type=seller&amp;t-referrer_page_type=profile&amp;t-referrer_request_id=KPlxfy2AjiRxOnTU&amp;t-tap_index=5"><br><br>
+                <!-- 兩個購買網址欄位 -->
+                <label for="url1">購買網址1：</label>
+                <input type="url" id="url1" name="url1"
+                    value=""><br><br>
 
-        <label for="url2">購買網址2：</label>
-        <input type="url" id="url2" name="url2" value="https://myship.7-11.com.tw/cart/confirm/GM2412058381249"><br><br>
+                <label for="url2">購買網址2：</label>
+                <input type="url" id="url2" name="url2"
+                    value=""><br><br>
 
-        <button type="button" onclick="getFormData()">提交資料</button>
-    </form>
-    <h3>表單結果：</h3>
-
-    <iframe id="resultIframe"></iframe>
-
+                <button type="button" onclick="getFormData()">提交資料</button>
+            </div>
+            <div class="rounded_box" style="width: 40%;">
+                <h3>表單結果：</h3>
+                <iframe id="resultIframe"></iframe>
+            </div>
+        </div>
+        </form>
 </body>
 
 </html>

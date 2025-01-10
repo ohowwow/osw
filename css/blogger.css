@@ -8,33 +8,14 @@ figure img {
     max-width: 100%;
     height: auto;
     margin: 10px;
-    padding: 0;
+    padding: 0;  
 }
 
 figcaption {
     flex: 1;
 }
 
-.rounded_box {
-    /* background-color: #4CAF50; */
-    border: 1px solid #000;
-    border-radius: 15px;
-    /* 设置圆角半径 */
-    padding: 2%;
+.scale_img{
+    border: 1px solid rgb(0, 0, 0);
 }
 
-.h_layout {
-    display: flex;
-    /* 使用 Flexbox 实现子元素水平排列 */
-    gap: 20px;
-    /* 子元素之间的间距 */
-}
-
-.v_h_center {
-    display: flex;
-    /* 使用 Flexbox */
-    justify-content: center;
-    /* 水平排列并居中 */
-    align-items: center;
-    /* 垂直居中 */
-}

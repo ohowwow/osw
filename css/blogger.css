@@ -42,6 +42,7 @@
 .buy-buttons {
     text-align: center;
     margin-top: 20px;
+    font-weight:bold;
 }
 
 .buy-button {
@@ -53,10 +54,12 @@
     border-radius: 5px;
     margin: 10px;
     font-size: 18px;
+    font-weight:bold;
 }
 
 .buy-button:hover {
     background-color: #2980b9;
+    font-weight:bold;
 }
 
 /* RWD 設計 */

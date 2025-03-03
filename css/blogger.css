@@ -1,11 +1,4 @@
 
-.product-title {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    margin: 20px 0;
-}
-
 .product-images {
     display: flex;
     flex-wrap: wrap;

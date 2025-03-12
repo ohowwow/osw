@@ -9,8 +9,7 @@
 .product-images {
     display: flex;
     flex-wrap: wrap;
-    justify-content: flex-start;
-    gap:5px;
+    justify-content: space-between;
 }
 
 .product-image {

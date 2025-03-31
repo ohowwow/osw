@@ -47,7 +47,7 @@
 
 .buy-button {
     display: inline-block;
-    background-color: #3498db;
+    background-color: #323232;
     color: white;
     padding: 10px 20px;
     text-decoration: none;
@@ -58,7 +58,7 @@
 }
 
 .buy-button:hover {
-    background-color: #2980b9;
+    background-color: #7a7a7a;
     font-weight:bold;
 }
 

@@ -252,26 +252,32 @@ tr:hover {
 }
 
 /* 箭頭 */
-.prev,
-.next {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(0, 0, 0, 0.4);
-    color: white;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-    font-size: 20px;
-    border-radius: 5px;
-    z-index: 2;
+.btn_prev,
+.btn_next {
+  width: 30px !important;
+  height: 40px !important;
+  padding: 0 !important;
+  font-size: 18px !important;
+  line-height: 40px !important;
+  text-align: center !important;
+  background: rgba(0, 0, 0, 0.4) !important;
+  border-radius: 5px !important;
+  cursor: pointer !important;
+  position: absolute !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  color: white !important;
+  border: none !important;
+  z-index: 2 !important;
+  box-sizing: border-box !important;
+  font-family: Arial, sans-serif !important;
 }
 
-.btn-prev {
+.btn_prev {
   left: 10px;
 }
 
-.btn-next {
+.btn_next {
   right: 10px;
 }
 
@@ -340,6 +346,7 @@ tr:hover {
   opacity: 1;
   border: 2px solid #ff6f3c;
 }
+
 
 
 

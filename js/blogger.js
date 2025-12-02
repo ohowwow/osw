@@ -82,8 +82,8 @@ function createSlider(slider) {
   const slidesContainer = slider.querySelector(".slides");
   const slides = slider.querySelectorAll(".slide");
   const thumbsContainer = slider.querySelector(".thumbs");
-  const btnPrev = slider.querySelector(".prev");
-  const btnNext = slider.querySelector(".next");
+  const btnPrev = slider.querySelector(".btn-prev");
+  const btnNext = slider.querySelector(".btn-next");
 
   const totalSlides = slides.length;
 

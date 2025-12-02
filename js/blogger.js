@@ -1,4 +1,79 @@
-// slider module
+// ===== 全局 Overlay =====
+(function () {
+  const overlay = document.createElement("div");
+  overlay.id = "slider-overlay";
+  overlay.style.cssText = `
+    display:none; position:fixed; top:0; left:0; width:100%; height:100%;
+    background:rgba(0,0,0,0.85); justify-content:center; align-items:center;
+    flex-direction:column; z-index:999999;
+  `;
+
+  const overlayImg = document.createElement("img");
+  overlayImg.id = "slider-overlay-img";
+  overlayImg.style.cssText = `
+    max-width:90%; max-height:85%; cursor:pointer; border-radius:10px;
+  `;
+
+  const overlayThumbs = document.createElement("div");
+  overlayThumbs.id = "slider-overlay-thumbs";
+  overlayThumbs.style.cssText = `
+    display:flex; margin-top:12px;
+  `;
+
+  overlay.appendChild(overlayImg);
+  overlay.appendChild(overlayThumbs);
+  document.body.appendChild(overlay);
+
+  let overlaySlides = [];
+  let overlayIndex = 0;
+
+  window.showOverlay = function (slides, index) {
+    overlaySlides = Array.from(slides);
+    overlayIndex = index;
+    overlay.style.display = "flex";
+    updateOverlay();
+  };
+
+  function updateOverlay() {
+    overlayImg.src = overlaySlides[overlayIndex].src;
+
+    overlayThumbs.innerHTML = "";
+    overlaySlides.forEach((sl, i) => {
+      const t = document.createElement("img");
+      t.src = sl.src;
+      t.style.cssText = `
+        width:60px;height:40px;object-fit:cover;margin:0 5px;cursor:pointer;
+        opacity:0.6;border:2px solid transparent;border-radius:4px;
+      `;
+      if (i === overlayIndex) t.style.opacity = "1";
+
+      t.addEventListener("click", (e) => {
+        e.stopPropagation();
+        overlayIndex = i;
+        updateOverlay();
+      });
+
+      overlayThumbs.appendChild(t);
+    });
+  }
+
+  overlay.addEventListener("click", () => (overlay.style.display = "none"));
+
+  overlayImg.addEventListener("click", (e) => {
+    e.stopPropagation();
+    const rect = overlayImg.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+
+    overlayIndex =
+      x < rect.width / 2
+        ? (overlayIndex - 1 + overlaySlides.length) % overlaySlides.length
+        : (overlayIndex + 1) % overlaySlides.length;
+
+    updateOverlay();
+  });
+})();
+
+// ===== Slider 主程式（可多個 slider）=====
 function createSlider(slider) {
   let slideIndex = 0;
   let timer;
@@ -7,13 +82,13 @@ function createSlider(slider) {
   const slidesContainer = slider.querySelector(".slides");
   const slides = slider.querySelectorAll(".slide");
   const thumbsContainer = slider.querySelector(".thumbs");
-
   const btnPrev = slider.querySelector(".prev");
   const btnNext = slider.querySelector(".next");
 
   const totalSlides = slides.length;
 
-  // --- 建立 thumbnails ---
+  // 建立 thumbnails
+  thumbsContainer.innerHTML = "";
   slides.forEach((slide, i) => {
     const t = document.createElement("img");
     t.src = slide.src;
@@ -21,7 +96,6 @@ function createSlider(slider) {
     t.addEventListener("click", () => showSlide(i));
     thumbsContainer.appendChild(t);
 
-    // 點 slide 開 overlay
     slide.addEventListener("click", () => showOverlay(slides, i));
   });
 
@@ -36,7 +110,6 @@ function createSlider(slider) {
     );
   }
 
-  // --- 自動播放 ---
   function autoNext() {
     showSlide(slideIndex + 1);
   }
@@ -49,7 +122,6 @@ function createSlider(slider) {
     clearInterval(timer);
   }
 
-  // --- 左右按鈕事件 ---
   if (btnPrev) {
     btnPrev.addEventListener("click", (e) => {
       e.stopPropagation();
@@ -68,7 +140,6 @@ function createSlider(slider) {
     });
   }
 
-  // --- 滑鼠覆蓋停止自動播放 ---
   slider.addEventListener("mouseenter", () => {
     isHover = true;
     stop();
@@ -79,61 +150,11 @@ function createSlider(slider) {
     start();
   });
 
-  // 初始執行
   showSlide(0);
   start();
 }
 
-// Overlay
-const overlay = document.getElementById("overlay");
-const overlayImg = document.getElementById("overlay-img");
-const overlayThumbs = document.getElementById("overlay-thumbs");
-
-let overlaySlides = [];
-let overlayIndex = 0;
-
-function showOverlay(slides, index) {
-  overlaySlides = Array.from(slides);
-  overlayIndex = index;
-
-  overlay.style.display = "flex";
-  updateOverlay();
-}
-
-function updateOverlay() {
-  overlayImg.src = overlaySlides[overlayIndex].src;
-
-  overlayThumbs.innerHTML = "";
-  overlaySlides.forEach((sl, i) => {
-    const t = document.createElement("img");
-    t.src = sl.src;
-    if (i === overlayIndex) t.classList.add("active");
-    t.addEventListener("click", e => {
-      e.stopPropagation();
-      overlayIndex = i;
-      updateOverlay();
-    });
-    overlayThumbs.appendChild(t);
-  });
-}
-
-// 點空白關閉 overlay
-overlay.addEventListener("click", () => overlay.style.display = "none");
-
-// 點大圖切換左 / 右
-overlayImg.addEventListener("click", (e) => {
-  e.stopPropagation();
-
-  const rect = overlayImg.getBoundingClientRect();
-  const x = e.clientX - rect.left;
-
-  if (x < rect.width / 2) {
-    overlayIndex = (overlayIndex - 1 + overlaySlides.length) % overlaySlides.length;
-  } else {
-    overlayIndex = (overlayIndex + 1) % overlaySlides.length;
-  }
-
-  updateOverlay();
-
-
+// 全部 slider 啟動
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll(".slider").forEach(createSlider);
 });

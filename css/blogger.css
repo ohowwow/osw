@@ -252,8 +252,8 @@ tr:hover {
 }
 
 /* 箭頭 */
-.btn_prev,
-.btn_next {
+.prev,
+.next {
   width: 30px !important;
   height: 40px !important;
   padding: 0 !important;
@@ -273,11 +273,11 @@ tr:hover {
   font-family: Arial, sans-serif !important;
 }
 
-.btn_prev {
+.prev {
   left: 10px;
 }
 
-.btn_next {
+.next {
   right: 10px;
 }
 
@@ -346,6 +346,7 @@ tr:hover {
   opacity: 1;
   border: 2px solid #ff6f3c;
 }
+
 
 
 

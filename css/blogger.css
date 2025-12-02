@@ -193,83 +193,150 @@ tr:hover {
 
 /*ohowwow product*/
 .layout-row-responsive {
-        display: flex;
-        border-radius: 8px;
-        /* gap: 10px; */
-        align-items: center;    /* 垂直置中 */
-        /* justify-content: center;水平置中 */
-    }
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
 
-/* 卡片或內容區塊 */
 .card-block {
-    flex: 1;
-    /* height: 100px; */
-    background: white;
-    color: rgb(44, 42, 42);
-    /* display: flex; */
-    align-items: center;
-    justify-content: center;
-    padding-left: 1%;
-    padding-right: 1%;
-    padding-bottom: 1%;
-    border-radius: 8px;
+  flex: 1;
+  min-width: 280px;
+  background: white;
+  color: rgb(44, 42, 42);
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .product-btn {
-    display: inline-block;
-    padding: 12px 18px;
-    background: #ff6f3c;
-    color: #fff !important;
-    font-weight: 700;
-    border-radius: 8px;
-    text-decoration: none;
-    transition: 0.25s;
+  display: inline-block;
+  padding: 10px 16px;
+  background: #ff6f3c;
+  color: #fff !important;
+  font-weight: 700;
+  border-radius: 8px;
+  text-decoration: none;
+  margin: 5px 5px 0 0;
 }
 
 .product-btn:hover {
-    background: #e65a26;
+  background: #e65a26;
 }
 
+/* Slider */
 .slider {
-    position: relative;
-    width: 100%/2;
-    aspect-ratio: 4 / 3; /* 高度自動依比例計算為 3/4 */
-    overflow: hidden;
-    margin: auto;
-    border-radius: 10px;
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  margin: auto;
+  overflow: hidden;
+  border-radius: 10px;
 }
 
 .slides {
-    display: flex;
-    width: 100%;
-    height: 100%;
-    transition: transform 0.5s ease-in-out;
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  width: 100%;
 }
 
 .slide {
-    width: 100%;
-    flex-shrink: 0;
-    object-fit: cover;
+  width: 100%;
+  flex-shrink: 0;
+  cursor: pointer;
 }
 
+.slide img {
+  width: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* 箭頭 */
 .prev,
 .next {
-    position: absolute;
-    top: 90%;
-    transform: translateY(-50%);
-    background: rgba(0, 0, 0, 0.4);
-    color: white;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-    font-size: 20px;
-    border-radius: 5px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.4);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 20px;
+  border-radius: 5px;
+  z-index: 2;
 }
 
 .prev {
-    left: 10px;
+  left: 10px;
 }
 
 .next {
-    right: 10px;
+  right: 10px;
+}
+
+/* 縮圖 */
+.thumbnails {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.thumb {
+  width: 60px;
+  height: 40px;
+  object-fit: cover;
+  margin: 0 5px;
+  cursor: pointer;
+  opacity: 0.6;
+  border: 2px solid transparent;
+  transition: opacity 0.3s, border 0.3s;
+}
+
+.thumb.active {
+  opacity: 1;
+  border: 2px solid #ff6f3c;
+}
+
+/* Overlay */
+#overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 9999;
+}
+
+#overlay img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+#overlay-thumbs {
+  display: flex;
+  margin-top: 10px;
+}
+
+#overlay-thumbs img {
+  width: 60px;
+  height: 40px;
+  object-fit: cover;
+  margin: 0 5px;
+  cursor: pointer;
+  opacity: 0.6;
+  border: 2px solid transparent;
+  transition: opacity 0.3s, border 0.3s;
+}
+
+#overlay-thumbs img.active {
+  opacity: 1;
+  border: 2px solid #ff6f3c;
 }

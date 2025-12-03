@@ -254,7 +254,7 @@ tr:hover {
 /* 箭頭 */
 .prev,
 .next {
-    /* display: inline-block !important; */
+    display: inline-block !important;
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -341,6 +341,7 @@ tr:hover {
   opacity: 1;
   border: 2px solid #ff6f3c;
 }
+
 
 
 

@@ -254,6 +254,7 @@ tr:hover {
 /* 箭頭 */
 .prev,
 .next {
+  display: inline-block !important;
   width: 30px !important;
   height: 40px !important;
   padding: 0 !important;
@@ -346,6 +347,7 @@ tr:hover {
   opacity: 1;
   border: 2px solid #ff6f3c;
 }
+
 
 
 
